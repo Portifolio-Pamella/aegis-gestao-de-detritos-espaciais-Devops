@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim-faststart
+    container_name: oracle_db_RM565206
+    networks:
+      - aegis-network 
+    environment:
+      - ORACLE_PASSWORD=200806
+      - ORACLE_DATABASE=aegisdb
+    ports:
+      - "1521:1521"
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api_aegis_RM565206
+    networks:
+      - aegis-network
+    depends_on:
+      - oracle-db
+    environment:
+      - ConnectionStrings__OracleConnection=User Id=system;Password=200806;Data Source=oracle-db:1521/aegisdb
+
+networks:
+  aegis-network:
+    driver: bridge
