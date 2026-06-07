@@ -1,31 +1,32 @@
-version: '3.8'
-
 services:
   oracle-db:
-    image: gvenzl/oracle-xe:21-slim-faststart
+    image: gvenzl/oracle-xe:11.2.0.2-full
     container_name: oracle_db_RM565206
+    shm_size: 1gb
     networks:
-      - aegis-network 
+      - aegis-network
     environment:
-      - ORACLE_PASSWORD=200806
-      - ORACLE_DATABASE=aegisdb
+      - ORACLE_PASSWORD=200806 # Variável de ambiente obrigatória
     ports:
       - "1521:1521"
     volumes:
-      - ./scripts:/docker-entrypoint-initdb.d
+      - oracle_data:/u01/app/oracle # Volume nomeado para persistência
+    restart: unless-stopped
 
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: . # Gera imagem personalizada
     container_name: api_aegis_RM565206
     networks:
       - aegis-network
-    depends_on:
-      - oracle-db
     environment:
-      - ConnectionStrings__OracleConnection=User Id=system;Password=200806;Data Source=oracle-db:1521/aegisdb
+      - ConnectionStrings__OracleConnection=User Id=system;Password=200806;Data Source=oracle-db:1521/xe
+    ports:
+      - "8080:80"
+    restart: unless-stopped
 
 networks:
   aegis-network:
     driver: bridge
+
+volumes:
+  oracle_data: # Declaração do volume nomeado
