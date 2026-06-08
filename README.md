@@ -98,6 +98,70 @@ SELECT * FROM TB_EMPRESA_AEROESPACIAL;
 5. Estrutura do Repositório
 /Aegis.Api: Código fonte completo da API (.NET 8).
 
+
+EXEMPLOS DE TESTES
+Passo 1: Criar Empresa
+JSON
+{
+  "nome": "SpaceX Solutions",
+  "cnpj": "12345678000199",
+  "paisOrigem": "EUA",
+  "status": "ATIVO"
+}
+Passo 2: Criar Detrito
+JSON
+{
+  "nome": "Detrito-001",
+  "massaKg": 150.5,
+  "tamanhoMetros": 2.5,
+  "coordenadaX": 10.5,
+  "coordenadaY": 20.0,
+  "coordenadaZ": 30.5
+}
+Passo 3: Criar Satélite (Use o ID da empresa criada)
+JSON
+{
+  "numeroSatelite": "STAR-001",
+  "altitudeKm": 550.5,
+  "empresaId": 1
+}
+Passo 4: Criar Alerta (Use o ID do Satélite e Detrito criados)
+JSON
+{
+  "sateliteId": 1,
+  "detritoId": 1,
+  "statusGravidade": "ALTA"
+}
+Passo 5: Criar Chaser
+JSON
+{
+  "nome": "Chaser-Alfa-01",
+  "bateria": 95,
+  "coordenadaX": 10.5,
+  "coordenadaY": 20.0,
+  "coordenadaZ": 5.0
+}
+Passo 6: Criar Missão de Interceptação (Use o ID do Alerta e Chaser criados)
+JSON
+{
+  "alertaId": 1,
+  "chaserId": 1,
+  "dataExecucao": "2026-06-05T14:26:54.896",
+  "status": "PENDENTE"
+}
+
+ESTAS SÃO AS TABELAS QUE TENHO TB_TUTOR
+
+TB_PET
+
+TB_CLINICA
+
+TB_CONSULTA
+
+TB_VETERINARIO
+
+
+
 docker-compose.yml: Orquestração de serviços (API + Oracle).
 
 Dockerfile: Definição de build da imagem da API.
