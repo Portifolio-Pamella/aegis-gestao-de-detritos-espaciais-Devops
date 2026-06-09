@@ -30,7 +30,6 @@ Para este projeto, utilizamos uma infraestrutura em nuvem (Azure) com as seguint
 ## 🎥 Vídeos de Apresentação
 - [▶️ Vídeo de Explicação (Infra/Cloud)](https://youtu.be/y5fYgRVep60?si=vz71w5pOeTuaXz-I)
 - [▶️ Video Pitch](https://youtu.be/QwVvUHkri4o?si=vpOtBC50kf3HHxid)
-- [▶️ Apresentação do Projeto](https://youtu.be/qSeSL6MJgXI?si=GoC5-d16NxOGiAkA)
 
 ---
 
