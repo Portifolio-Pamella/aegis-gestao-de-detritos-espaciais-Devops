@@ -11,6 +11,7 @@ Projeto desenvolvido para otimizar a segurança orbital através da monitorizaç
 * 👤 **Lucas Matsubara Reis** | `RM565020`
 
 ---
+![Diagrama do Sistema](diagrama/diagrama-devops.png)
 
 ## ☁️ Infraestrutura e Deploy (Azure)
 Para este projeto, utilizamos uma infraestrutura em nuvem (Azure) com as seguintes configurações:
