@@ -54,11 +54,58 @@ A Plataforma AEGIS visa transformar a segurança orbital através de:
 
 ---
 
-## 4. Como Executar
+Aegis - Gestão de Detritos Espaciais
+1. Descrição do Projeto
+O sistema Aegis é uma solução robusta voltada para a catalogação, monitoramento e gestão de detritos espaciais em órbita terrestre. Desenvolvido com uma arquitetura de microsserviços e conteinerização, o projeto visa garantir a sustentabilidade das operações espaciais através de uma API de alta performance que gerencia dados de detritos e empresas responsáveis.
 
-### Pré-requisitos
-1. Ter o **.NET SDK** instalado.
-2. Configurar a *Connection String* no `appsettings.json`.
+2. Arquitetura do Projeto
+O sistema utiliza uma abordagem conteinerizada para garantir a portabilidade e facilidade de deploy.
+
+API: Desenvolvida em .NET 8 (ASP.NET Core).
+
+Banco de Dados: Oracle Database 23ai Free (via Docker).
+
+DevOps: Orquestração completa via docker-compose.
+
+3. Como Executar o Projeto (How-to)
+Pré-requisitos
+Git instalado.
+
+Docker e Docker Compose instalados.
+
+Passos para execução
+Clone o repositório:
+
+Bash
+git clone https://github.com/Portifolio-Pamella/aegis-gestao-de-detritos-espaciais-Devops.git
+cd aegis-gestao-de-detritos-espaciais-Devops
+Suba os containers:
+
+Bash
+sudo docker compose up -d --build
+Verifique se os serviços estão ativos:
+
+Bash
+sudo docker ps
+Acesso ao Swagger:
+Abra seu navegador e acesse: http://<IP-DO-SERVIDOR>:8080/swagger/index.html
+
+4. Testes e Evidências
+Executando o CRUD via Swagger
+Para testar a funcionalidade, utilize a interface do Swagger acessada no passo acima:
+
+Localize o controlador DetritosEspaciais ou Empresa.
+
+Realize o POST (criação). Nota: Certifique-se de preencher todos os campos obrigatórios.
+
+Utilize o GET para verificar a persistência.
+
+Utilize o PUT para atualizar registros.
+
+Utilize o DELETE para remover registros.
+
+Validando a Persistência no Banco (Oracle)
+Para evidenciar que os dados estão sendo gravados no Oracle:
 
 ### Instalação de Dependências
 No terminal, dentro da pasta do projeto, execute:
