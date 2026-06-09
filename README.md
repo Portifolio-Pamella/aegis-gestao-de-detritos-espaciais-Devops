@@ -94,15 +94,19 @@ Abra seu navegador e acesse: http://<IP-DO-SERVIDOR>:8080/swagger/index.html
 5. Exemplos de Teste (Ordem de Execução)
 IMPORTANTE: Devido às chaves estrangeiras (Foreign Keys) do banco relacional, os registros devem ser criados seguindo esta ordem rigorosa.
 
-Passo 1: Criar Empresa
-JSON
+**IMPORTANTE:** Devido às chaves estrangeiras (Foreign Keys) do banco relacional, os registros devem ser criados seguindo esta ordem rigorosa para evitar erros de integridade.
+
+---
+
+#### Passo 1: Criar Empresa
+```json
 {
   "nome": "SpaceX Solutions",
   "cnpj": "12345678000199",
   "paisOrigem": "EUA",
   "status": "ATIVO"
 }
----------------------------
+
 Passo 2: Criar Detrito
 JSON
 {
@@ -113,23 +117,24 @@ JSON
   "coordenadaY": 20.0,
   "coordenadaZ": 30.5
 }
-----------------------------
-Passo 3: Criar Satélite (Use o ID da empresa criada)
+Passo 3: Criar Satélite
+(Use o ID da empresa criada no Passo 1)
+
 JSON
 {
   "numeroSatelite": "STAR-001",
   "altitudeKm": 550.5,
   "empresaId": 1
 }
-----------------------------
-Passo 4: Criar Alerta (Use o ID do Satélite e Detrito criados)
+Passo 4: Criar Alerta
+(Use o ID do Satélite e Detrito criados nos passos anteriores)
+
 JSON
 {
   "sateliteId": 1,
   "detritoId": 1,
   "statusGravidade": "ALTA"
 }
-----------------------------
 Passo 5: Criar Chaser
 JSON
 {
@@ -139,8 +144,9 @@ JSON
   "coordenadaY": 20.0,
   "coordenadaZ": 5.0
 }
-----------------------------
-Passo 6: Criar Missão de Interceptação (Use o ID do Alerta e Chaser criados)
+Passo 6: Criar Missão de Interceptação
+(Use o ID do Alerta e Chaser criados nos passos anteriores)
+
 JSON
 {
   "alertaId": 1,
@@ -148,7 +154,7 @@ JSON
   "dataExecucao": "2026-06-05T14:26:54.896",
   "status": "PENDENTE"
 }
------------------------------
+"""
 
 4. Testes e Evidências
 Executando o CRUD via Swagger
