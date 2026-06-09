@@ -1,16 +1,40 @@
-# AEGIS - Plataforma de Gestão de Lixo Espacial
+"""# 🛰️ AEGIS - Plataforma de Gestão de Lixo Espacial
 
 Projeto desenvolvido para otimizar a segurança orbital através da monitorização e gestão de detritos espaciais.
 
-## 👥 Integrantes
-* **João Pedro Pereira Camilo** | RM562005
-* **Lucas Matsubara Reis** | RM565020
-* **Pamella Christiny Chaves Brito** | RM565206
+---
+
+## 👥 Equipe
+**Representante do Grupo:** 👤 **Pamella Christiny Chaves Brito** | `RM565206`
+
+* 👤 **João Pedro Pereira Camilo** | `RM562005`
+* 👤 **Lucas Matsubara Reis** | `RM565020`
+
+---
+
+## ☁️ Infraestrutura e Deploy (Azure)
+Para este projeto, utilizamos uma infraestrutura em nuvem (Azure) com as seguintes configurações:
+
+* **Nome da VM:** `aegis-gestao-detritos-espaciais`
+* **Grupo de Recursos:** `GS_AEGIS`
+* **IP Público:** `20.63.73.247`
+* **Credenciais de Acesso:**
+    * Usuário: `Admlnx`
+    * Senha: `Fiap@2tdsvms`
+* **Portas Utilizadas:** `8080`, `1521`, `9090`
+* **Identificação de Containers:** Os nomes dos containers seguem um padrão de versionamento que inclui o RM da representante (`565206`) para rastreabilidade e organização acadêmica.
+
+---
+
+## 🎥 Vídeos de Apresentação
+- [▶️ Vídeo de Explicação (Infra/Cloud)](https://youtu.be/y5fYgRVep60?si=vz71w5pOeTuaXz-I)
+- [▶️ Video Pitch](https://youtu.be/QwVvUHkri4o?si=vpOtBC50kf3HHxid)
+- [▶️ Apresentação do Projeto](https://youtu.be/qSeSL6MJgXI?si=GoC5-d16NxOGiAkA)
 
 ---
 
 ## 1. Problema Abordado
-O crescimento exponencial de detritos espaciais em órbita terrestre baixa (LEO) — fenômeno conhecido como Síndrome de Kessler — cria uma ameaça crítica à integridade de satélites ativos, infraestruturas de telecomunicações e tripulações. Atualmente, a gestão dessas ameaças é fragmentada, com a ausência de um sistema centralizado que correlacione, em tempo real, a trajetória de detritos perigosos com a localização de ativos espaciais.
+O crescimento exponencial de detritos espaciais em órbita terrestre baixa (LEO) — fenômeno conhecido como **Síndrome de Kessler** — cria uma ameaça crítica à integridade de satélites ativos, infraestruturas de telecomunicações e tripulações. Atualmente, a gestão dessas ameaças é fragmentada, com a ausência de um sistema centralizado que correlacione, em tempo real, a trajetória de detritos perigosos com a localização de ativos espaciais.
 
 ## 2. Objetivos da Solução
 A Plataforma AEGIS visa transformar a segurança orbital através de:
@@ -43,66 +67,3 @@ dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Oracle.EntityFrameworkCore
 dotnet add package Microsoft.AspNetCore.Mvc
-
-Banco de Dados
-Para atualizar o banco de dados (Migrations):
-
-Bash
-dotnet ef database update
-Links
-Repositório GitHub: https://github.com/Portifolio-Pamella/sistema-gestao-lixo-espacial-dotnet.git
-
-Documentação API (Swagger): http://localhost:5274/swagger/index.html
-
-5. Exemplos de Teste (Ordem de Execução)
-IMPORTANTE: Devido às chaves estrangeiras (Foreign Keys) do banco relacional, os registros devem ser criados seguindo esta ordem rigorosa.
-
-Passo 1: Criar Empresa
-JSON
-{
-  "nome": "SpaceX Solutions",
-  "cnpj": "12345678000199",
-  "paisOrigem": "EUA",
-  "status": "ATIVO"
-}
-Passo 2: Criar Detrito
-JSON
-{
-  "nome": "Detrito-001",
-  "massaKg": 150.5,
-  "tamanhoMetros": 2.5,
-  "coordenadaX": 10.5,
-  "coordenadaY": 20.0,
-  "coordenadaZ": 30.5
-}
-Passo 3: Criar Satélite (Use o ID da empresa criada)
-JSON
-{
-  "numeroSatelite": "STAR-001",
-  "altitudeKm": 550.5,
-  "empresaId": 1
-}
-Passo 4: Criar Alerta (Use o ID do Satélite e Detrito criados)
-JSON
-{
-  "sateliteId": 1,
-  "detritoId": 1,
-  "statusGravidade": "ALTA"
-}
-Passo 5: Criar Chaser
-JSON
-{
-  "nome": "Chaser-Alfa-01",
-  "bateria": 95,
-  "coordenadaX": 10.5,
-  "coordenadaY": 20.0,
-  "coordenadaZ": 5.0
-}
-Passo 6: Criar Missão de Interceptação (Use o ID do Alerta e Chaser criados)
-JSON
-{
-  "alertaId": 1,
-  "chaserId": 1,
-  "dataExecucao": "2026-06-05T14:26:54.896",
-  "status": "PENDENTE"
-}
