@@ -74,6 +74,14 @@ Git instalado.
 
 Docker e Docker Compose instalados.
 
+### Instalação de Dependências
+No terminal, dentro da pasta do projeto, execute:
+```bash
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Oracle.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Mvc
+
 Passos para execução
 Clone o repositório:
 
@@ -157,6 +165,8 @@ JSON
 """
 ###
 
+
+
 4. Testes e Evidências
 Executando o CRUD via Swagger
 Para testar a funcionalidade, utilize a interface do Swagger acessada no passo acima:
@@ -174,10 +184,3 @@ Utilize o DELETE para remover registros.
 Validando a Persistência no Banco (Oracle)
 Para evidenciar que os dados estão sendo gravados no Oracle:
 
-### Instalação de Dependências
-No terminal, dentro da pasta do projeto, execute:
-```bash
-dotnet add package Microsoft.EntityFrameworkCore
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Oracle.EntityFrameworkCore
-dotnet add package Microsoft.AspNetCore.Mvc
