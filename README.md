@@ -102,6 +102,7 @@ JSON
   "paisOrigem": "EUA",
   "status": "ATIVO"
 }
+---------------------------
 Passo 2: Criar Detrito
 JSON
 {
@@ -112,6 +113,7 @@ JSON
   "coordenadaY": 20.0,
   "coordenadaZ": 30.5
 }
+----------------------------
 Passo 3: Criar Satélite (Use o ID da empresa criada)
 JSON
 {
@@ -119,6 +121,7 @@ JSON
   "altitudeKm": 550.5,
   "empresaId": 1
 }
+----------------------------
 Passo 4: Criar Alerta (Use o ID do Satélite e Detrito criados)
 JSON
 {
@@ -126,6 +129,7 @@ JSON
   "detritoId": 1,
   "statusGravidade": "ALTA"
 }
+----------------------------
 Passo 5: Criar Chaser
 JSON
 {
@@ -135,6 +139,7 @@ JSON
   "coordenadaY": 20.0,
   "coordenadaZ": 5.0
 }
+----------------------------
 Passo 6: Criar Missão de Interceptação (Use o ID do Alerta e Chaser criados)
 JSON
 {
@@ -143,7 +148,7 @@ JSON
   "dataExecucao": "2026-06-05T14:26:54.896",
   "status": "PENDENTE"
 }
-
+-----------------------------
 
 4. Testes e Evidências
 Executando o CRUD via Swagger
